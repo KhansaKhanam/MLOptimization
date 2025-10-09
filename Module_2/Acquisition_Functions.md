@@ -20,6 +20,17 @@ The exploration and exploitation can be adjusted with an epsilon term:
 
 <img width="580" height="66" alt="Screenshot 2025-10-05 at 22 09 25" src="https://github.com/user-attachments/assets/4a5422a9-7b28-487d-9999-721d79e02bec" />
 
+## KNOWLEDGE GRADIENT (KG) 
+When the model optimization is computationally expensive - approach shifts from an entirely black-box approach to a slightly grey-box approach where in you use other information of the system you're trying to optimize along with tested output. 
+
+* KG values information - estimates the extent to which the knowledge we procure from previous learning influences future decisiosn
+* More keen on exploitation
+
+KG takes into account noise and future proofs the model for future datapoints. 
+1. Loss at t = mu* = min mu(x) -> Minimum on posterior mean line
+2. Loss at t+1 after sampling candidate datapoints which changes the posterior mean = (mu+)* = min (mu+) -> updated minimum 
+3. Reduction in loss = E(f* - min(f*,f) | conditioned by new candidate point z)
+
 
 REFERENCE:
 1. https://ekamperi.github.io/machine%20learning/2021/06/11/acquisition-functions.html

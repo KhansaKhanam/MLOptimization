@@ -27,4 +27,22 @@ Therefore, the current best practical approach to global optimization of complex
 ## ADAPTIVE MODIFICATIONS TO IMPROVE PERFORMANCE:
 1. Selecting different kernels for training different GP models and find the one that best performs for our needs
 2. To do this, you can adapt different acquisition function per iteration and assign weights as per their success
-3. 
+
+## REVISITING KG (KNOWLEDGE GRADIENT)
+![IMG_7832](https://github.com/user-attachments/assets/fc1ef7cd-9f2b-4acc-9c4e-39619e2906bd)
+![IMG_7833](https://github.com/user-attachments/assets/d6e1bed8-3a6a-43c2-9eff-2457c5b72f4d)
+
+Two main approaches for solving KG:
+1. Stochastic Gradient Descent + Envelope Theorem
+2. Sample Average Approximation
+
+1. **Stochastic Gradient Descent + Envelope Theorem -**
+   1. The expectation of KG is approximated with the monte-carlo sampling of the random variable Z ~ N(0,1) -<img width="493" height="83" alt="Screenshot 2025-10-10 at 19 17 35" src="https://github.com/user-attachments/assets/4aa44749-c168-4bfa-be92-56d0a7a141f4" />
+   2. Each sample of Z solves an inner minimization problem dependent on x(n+1) which is complex for differentiation. The **Envelope Theorem** helps us simplify this by stating that the gradient of the outer function with respect to parameters depend on the gradient of the objective evaluated at the inner minimizer.
+      <img width="457" height="105" alt="Screenshot 2025-10-10 at 19 22 19" src="https://github.com/user-attachments/assets/2f48de18-19f1-470e-a667-e223816ab9db" />
+   3. Using gradient estimate update x(n+1) iteratively = <img width="316" height="59" alt="Screenshot 2025-10-10 at 19 23 51" src="https://github.com/user-attachments/assets/48253429-4016-422a-8227-6c683789072b" />
+   4. SUMMARY: for each x(n+1) draw many x(m) evaluated by monte-carlo method and find gradient of inner function with respect to x(n+1) keeping x(m) or the x obtained from monte-carlo method a constant; average gradient over samples - update x(n+1)
+
+2. **Sample Average Approximation -**
+   1. Commonly used approach for its parallelism, stability, and better scalability besides higher dimensionality 
+

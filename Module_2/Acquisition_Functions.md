@@ -13,8 +13,9 @@ When λ is small, BO will favor solutions that are expected to be high-performin
 ![IMG_7811](https://github.com/user-attachments/assets/87265bfb-86ba-4251-91af-917ca6557c72)
 
 ## Expected Improvement (EI)
-![IMG_7810](https://github.com/user-attachments/assets/2b989cf7-bf4a-4fa3-8167-9fcafd88179b)
+
 ![IMG_7809](https://github.com/user-attachments/assets/3bb5811f-8149-4c37-bf6b-7f2ffe258c06)
+![IMG_7810](https://github.com/user-attachments/assets/2b989cf7-bf4a-4fa3-8167-9fcafd88179b)
 
 The exploration and exploitation can be adjusted with an epsilon term:
 

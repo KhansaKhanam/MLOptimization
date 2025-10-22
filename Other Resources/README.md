@@ -2,5 +2,4 @@
 2. Knowledge Gradient - https://youtu.be/bya1rAr8spU?si=Hsh_AJnvSE8vwzQG
 3. MPC - https://www.do-mpc.com/en/latest/getting_started.html
        - https://towardsdatascience.com/model-predictive-control-basics/
-4. MPC in Practice - https://towardsdatascience.com/mcp-in-practice/
 

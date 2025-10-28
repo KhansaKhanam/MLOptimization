@@ -32,3 +32,23 @@ Understanding these biophysical and biochemical mechanisms isn't just academical
 * Target the specific pathways that enable phenotypic transitions
 * Develop therapies that "lock" cancer cells into non-invasive spheroid states
 
+## Guidelines for using the simulation data in Bayesian Optimization
+The simulation data is organized into folders named according to the varying parameter values, while all other parameters were held constant. The folder naming convention follows the structure:
+Phenotype_λ_Jcc_k
+	•	Example: Spheroid_500_10_0005, Network_1000_15_0005.
+Each folder also contains a JSON file that stores the specific parameter values used in that simulation experiment. These serve as a record of the parameter estimation setup and can be directly linked to the corresponding simulation outputs.
+To evaluate model performance, the sum of squared error (SSE) is calculated at time steps that align with the in-vitro experimental data (e.g., hours 12, 24, 36, 48, and 60). This ensures that the comparison between simulation and experiment is meaningful and consistent.
+The provided Jupyter Notebook includes:
+	•	A detailed workflow for calculating SSE across the relevant time steps.
+	•	Instructions on extracting and utilizing the simulation parameters from the JSON files.
+	•	An outline of the variables and metrics to be used in the Bayesian Optimization pipeline, where the objective function is defined as the minimization of SSE.
+This setup enables a systematic search for the optimal parameter combination that best reproduces experimental outcomes while leveraging the Bayesian Optimization framework.
+
+## *Notes:*
+1. Labelling for Phenotype: 1-Spheroid; 2-Network
+2. **EXTRACT DATA FOR EACH PHENTOTYPE(spheroids/networks) WITH 32 PARAMETER COMBINATIONS AND THEIR 20 REPLICATES FROM THE ZIP FILE**
+TERMINAL COMMANDS: 
+> unzip <zip_filename.zip> -d <folder_name you want to extract into>
+    NOTE: Will remove the exttacted file while pushing it on github to save space but you can only follow the next steps by extracting the folder first 
+
+MAIL ME @ khansakh@protonmail.com for the BO_data.zip
